@@ -64,9 +64,11 @@ with st.expander("REGRESSION COEFFICIENT"):
 # Print R-squared, Adjusted R-squared, and SSE
 with st.expander("MEASURE OF VARIATIONS"):
  col1,col2,col3=st.columns(3)
+ from streamlit_extras.metric_cards import style_metric_cards
  col1.metric('R-SQUARED:',value= f'{r2:.4f}',delta="Coefficient of Determination")
  col2.metric('ADJUSTED R-SQUARED:',value= f'{adjusted_r2:.4f}',delta="Adj[R2]")
  col3.metric('SUM SQUARED ERROR (SSE):',value= f'{sse:.4f}',delta="Squared(Y-Y_pred)")
+ style_metric_cards(background_color="#596073",border_left_color="#F71938",border_color="#1f66bd",box_shadow="#F71938")
 
 
  # Print a table with predicted Y
