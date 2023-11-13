@@ -14,7 +14,7 @@ st.set_page_config(page_title="Dashboard", page_icon="📈", layout="wide")
 
 
 st.header(" MACHINE LEARNING WORKFLOW ")
-st.header("",divider="rainbow")
+
  
 
 #logo
