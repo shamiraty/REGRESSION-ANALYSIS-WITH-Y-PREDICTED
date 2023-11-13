@@ -15,7 +15,9 @@ st.set_page_config(page_title="Dashboard", page_icon="📈", layout="wide")
 
 st.header(" MACHINE LEARNING WORKFLOW ")
 
- 
+ # load CSS Style
+with open('style.css')as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html = True)
 
 #logo
 st.sidebar.image("images/logos.webp",caption="MULTI-VARIABLE REGRESSION")
