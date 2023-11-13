@@ -68,7 +68,7 @@ with st.expander("MEASURE OF VARIATIONS"):
  col1.metric('R-SQUARED:',value= f'{r2:.4f}',delta="Coefficient of Determination")
  col2.metric('ADJUSTED R-SQUARED:',value= f'{adjusted_r2:.4f}',delta="Adj[R2]")
  col3.metric('SUM SQUARED ERROR (SSE):',value= f'{sse:.4f}',delta="Squared(Y-Y_pred)")
- style_metric_cards(background_color="#596073",border_left_color="#F71938",border_color="#1f66bd",box_shadow="#F71938")
+ style_metric_cards(background_color="#FFFFFF",border_left_color="#1E264C",border_color="#1f66bd",box_shadow="#F71938")
 
 
  # Print a table with predicted Y
