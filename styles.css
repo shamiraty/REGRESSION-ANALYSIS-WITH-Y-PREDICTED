@@ -16,9 +16,9 @@
         font-size: 1.4rem;
          
     }
- .dataframe {
-            font-size: 34px !important;
+   .dataframe .data {
+            font-size: 20px !important;
         }
-  .sidebar-content {
+   .sidebar .sidebar-content {
             color: white !important;
         }
