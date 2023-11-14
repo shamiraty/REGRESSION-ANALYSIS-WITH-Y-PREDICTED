@@ -8,19 +8,24 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
 st.set_option('deprecation.showPyplotGlobalUse', False)
+from streamlit_extras.metric_cards import style_metric_cards
+
+ 
 
 #navicon and header
 st.set_page_config(page_title="Dashboard", page_icon="📈", layout="wide")  
 
 
 st.header(" MACHINE LEARNING WORKFLOW ")
-
+st.image("images/logo2.webp",caption="")
+st.write("MULTIPLE REGRESSION WITH  SSE, SE, SSR, SST, R2, ADJ[R2], RESIDUAL")
  # load CSS Style
 with open('styles.css')as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html = True)
 
 #logo
 st.sidebar.image("images/logos.webp",caption="MULTI-VARIABLE REGRESSION")
+st.sidebar.title("ADD NEW VALUE")
 
 df = pd.read_excel('Book1.xlsx')
 X = df[['Dependant', 'Wives']]
@@ -58,21 +63,22 @@ ssr = np.sum((y_pred - np.mean(Y)) ** 2)
 with st.expander("REGRESSION COEFFICIENT"):
  col1,col2,col3=st.columns(3)
  col1.metric('INTERCEPT:',value= f'{intercept:.4f}',delta="(Bo)")
- col2.metric('B1 COEFFICIENT:',value= f'{coefficients[0]:.4f}',delta=" for X1 numeber of Dependant (B1)")
+ col2.metric('B1 COEFFICIENT:',value= f'{coefficients[0]:.4f}',delta=" for X1 number of Dependant (B1)")
  col3.metric('B2 COEFFICIENT',value= f'{coefficients[1]:.4f}',delta=" for X2 number of Wives (B2):")
+ style_metric_cards(background_color="#FFFFFF",border_left_color="#9900AD",border_color="#1f66bd",box_shadow="#F71938")
 
 
 
 # Print R-squared, Adjusted R-squared, and SSE
 with st.expander("MEASURE OF VARIATIONS"):
  col1,col2,col3=st.columns(3)
- from streamlit_extras.metric_cards import style_metric_cards
+ 
  col1.metric('R-SQUARED:',value= f'{r2:.4f}',delta="Coefficient of Determination")
  col2.metric('ADJUSTED R-SQUARED:',value= f'{adjusted_r2:.4f}',delta="Adj[R2]")
  col3.metric('SUM SQUARED ERROR (SSE):',value= f'{sse:.4f}',delta="Squared(Y-Y_pred)")
- style_metric_cards(background_color="#FFFFFF",border_left_color="#1E264C",border_color="#1f66bd",box_shadow="#F71938")
+ style_metric_cards(background_color="#FFFFFF",border_left_color="#9900AD",border_color="#1f66bd",box_shadow="#F71938")
 
-
+ 
  # Print a table with predicted Y
 
 with st.expander("PREDICTION TABLE"):
@@ -132,8 +138,8 @@ if submit_button:
   new_data = np.array([[x1, x2]])
   new_prediction = model.predict(new_data)
   # Display prediction
-  
-  st.write(f"<span style='font-size: 34px;color:green;'>Predicted Output: </span> <span style='font-size: 34px;'>{new_prediction}</span>", unsafe_allow_html=True)
+  with st.expander("OPEN"):
+   st.write(f"<span style='font-size: 34px;color:green;'>Predicted Output: </span> <span style='font-size: 34px;'> {new_prediction}</span>", unsafe_allow_html=True)
  
 
 
