@@ -16,9 +16,7 @@
         font-size: 1.3rem;
          
     }
-   .dataframe .data {
-            font-size: 20px !important;
-        }
-   .sidebar .sidebar-content {
-            color: white !important;
-        }
+    div[data-testid="stDataframe"] div[role="button"] p {
+        font-size: 1.3rem;
+        color: rgb(1, 84, 84);
+    }
